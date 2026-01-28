@@ -203,7 +203,10 @@ export default async function DocumentPage({ params }: DocumentPageProps) {
                 </Button>
               </Link>
               <Suspense fallback={null}>
-                <DownloadPDFButton documentTitle={document.title} />
+                <DownloadPDFButton
+                  documentTitle={document.title}
+                  documentSlug={document.slug.current}
+                />
               </Suspense>
             </div>
           </div>

@@ -4,7 +4,13 @@ import { Button } from '@/components/ui/button'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-export function DownloadPDFButton({ documentTitle }: { documentTitle: string }) {
+export function DownloadPDFButton({
+  documentTitle,
+  documentSlug
+}: {
+  documentTitle: string
+  documentSlug: string
+}) {
   const searchParams = useSearchParams()
   const [shouldShow, setShouldShow] = useState(false)
   const [isGenerating, setIsGenerating] = useState(false)
@@ -20,90 +26,25 @@ export function DownloadPDFButton({ documentTitle }: { documentTitle: string }) 
   const handleDownloadPDF = async () => {
     setIsGenerating(true)
     try {
-      // Dynamically import the libraries only when needed
-      const html2canvas = (await import('html2canvas')).default
-      const { jsPDF } = await import('jspdf')
+      // Call the API route to generate the PDF
+      const response = await fetch(`/api/download-pdf?slug=${encodeURIComponent(documentSlug)}`)
 
-      // Get the document content element
-      const element = document.querySelector('[data-document-content]')
-      if (!element) {
-        console.error('Document content not found')
-        alert('Could not find document to convert. Please try again.')
-        return
+      if (!response.ok) {
+        throw new Error('Failed to generate PDF')
       }
 
-      // Clone the element to avoid modifying the original
-      const clonedElement = element.cloneNode(true) as HTMLElement
+      // Get the PDF blob
+      const blob = await response.blob()
 
-      // Create a temporary container
-      const tempContainer = document.createElement('div')
-      tempContainer.style.position = 'absolute'
-      tempContainer.style.left = '-9999px'
-      tempContainer.style.top = '0'
-      tempContainer.style.width = element.clientWidth + 'px'
-      tempContainer.appendChild(clonedElement)
-      document.body.appendChild(tempContainer)
-
-      // Force compute all styles to RGB
-      const allElements = clonedElement.querySelectorAll('*')
-      allElements.forEach((el) => {
-        const htmlEl = el as HTMLElement
-        const computedStyle = window.getComputedStyle(htmlEl)
-
-        // Convert computed colors to inline styles
-        if (computedStyle.color) {
-          htmlEl.style.color = computedStyle.color
-        }
-        if (computedStyle.backgroundColor) {
-          htmlEl.style.backgroundColor = computedStyle.backgroundColor
-        }
-        if (computedStyle.borderColor) {
-          htmlEl.style.borderColor = computedStyle.borderColor
-        }
-      })
-
-      // Create canvas from the cloned element
-      const canvas = await html2canvas(clonedElement, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        backgroundColor: '#ffffff',
-        windowWidth: element.clientWidth,
-        windowHeight: element.clientHeight,
-      })
-
-      // Remove temporary container
-      document.body.removeChild(tempContainer)
-
-      // Calculate PDF dimensions
-      const imgWidth = 210 // A4 width in mm
-      const pageHeight = 297 // A4 height in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width
-      let heightLeft = imgHeight
-      let position = 0
-
-      // Create PDF
-      const pdf = new jsPDF('p', 'mm', 'a4')
-      const imgData = canvas.toDataURL('image/png')
-
-      // Add first page
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
-      heightLeft -= pageHeight
-
-      // Add additional pages if needed
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight
-        pdf.addPage()
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
-        heightLeft -= pageHeight
-      }
-
-      // Download the PDF
-      const fileName = documentTitle
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-|-$/g, '')
-      pdf.save(`${fileName}.pdf`)
+      // Create a download link
+      const url = window.URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = `${documentTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.pdf`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      window.URL.revokeObjectURL(url)
     } catch (error) {
       console.error('Error generating PDF:', error)
       alert(`Failed to generate PDF: ${error instanceof Error ? error.message : 'Unknown error'}. Please try again.`)
