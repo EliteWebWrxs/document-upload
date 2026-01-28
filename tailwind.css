@@ -1,26 +1,44 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
+/*
+  ---break---
+*/
+@custom-variant dark (&:is(.dark *));
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-accent-1: #fafafa;
-  --color-accent-2: #eaeaea;
-  --color-accent-7: #333;
-  --color-success: #0070f3;
-  --color-cyan: #79ffe1;
-  --color-blue-500: #2276fc;
-  --color-yellow-100: #fef7da;
+  /* Modern Legal Color Palette - Refined navy and neutrals */
+  --color-navy-950: #0f172a;
+  --color-navy-900: #1e293b;
+  --color-navy-800: #334155;
+  --color-navy-700: #475569;
+  --color-navy-600: #64748b;
+  --color-navy-100: #e2e8f0;
+  --color-navy-50: #f8fafc;
 
-  --tracking-tighter: -0.04em;
+  --color-charcoal-900: #18181b;
+  --color-charcoal-800: #27272a;
+  --color-charcoal-700: #3f3f46;
+  --color-charcoal-600: #52525b;
+  --color-charcoal-500: #71717a;
+  --color-charcoal-300: #d4d4d8;
+  --color-charcoal-200: #e4e4e7;
+  --color-charcoal-100: #f4f4f5;
+  --color-charcoal-50: #fafafa;
 
-  --leading-tight: 1.2;
+  --color-cream: #fdfcfb;
+  --color-parchment: #f9f8f6;
 
-  --text-5xl: 2.5rem;
-  --text-6xl: 2.75rem;
-  --text-7xl: 4.5rem;
-  --text-8xl: 6.25rem;
+  /* Typography - Professional legal fonts */
+  --font-serif: ui-serif, 'Georgia', 'Cambria', 'Times New Roman', serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
-  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --leading-relaxed: 1.75;
+  --leading-loose: 2;
+
+  /* Modern shadows with subtle depth */
+  --shadow-legal: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  --shadow-document: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
 }
 
 /*
@@ -38,5 +56,146 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+}
+/*
+  ---break---
+*/
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+/*
+  ---break---
+*/
+:root {
+  --radius: 0.25rem;
+  --background: var(--color-cream);
+  --foreground: var(--color-charcoal-900);
+  --card: #ffffff;
+  --card-foreground: var(--color-charcoal-900);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-charcoal-900);
+  --primary: var(--color-navy-900);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-charcoal-100);
+  --secondary-foreground: var(--color-charcoal-900);
+  --muted: var(--color-charcoal-100);
+  --muted-foreground: var(--color-charcoal-600);
+  --accent: var(--color-navy-50);
+  --accent-foreground: var(--color-navy-900);
+  --destructive: #dc2626;
+  --border: var(--color-charcoal-300);
+  --input: var(--color-charcoal-200);
+  --ring: var(--color-navy-600);
+  --chart-1: var(--color-navy-600);
+  --chart-2: var(--color-charcoal-600);
+  --chart-3: var(--color-navy-800);
+  --chart-4: var(--color-charcoal-500);
+  --chart-5: var(--color-navy-700);
+}
+/*
+  ---break---
+*/
+.dark {
+  --background: var(--color-navy-950);
+  --foreground: var(--color-charcoal-50);
+  --card: var(--color-charcoal-900);
+  --card-foreground: var(--color-charcoal-50);
+  --popover: var(--color-charcoal-900);
+  --popover-foreground: var(--color-charcoal-50);
+  --primary: var(--color-navy-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-charcoal-800);
+  --secondary-foreground: var(--color-charcoal-50);
+  --muted: var(--color-charcoal-800);
+  --muted-foreground: var(--color-charcoal-500);
+  --accent: var(--color-navy-900);
+  --accent-foreground: var(--color-navy-100);
+  --destructive: #ef4444;
+  --border: var(--color-charcoal-700);
+  --input: var(--color-charcoal-800);
+  --ring: var(--color-navy-600);
+  --chart-1: var(--color-navy-600);
+  --chart-2: var(--color-charcoal-600);
+  --chart-3: var(--color-navy-800);
+  --chart-4: var(--color-charcoal-500);
+  --chart-5: var(--color-navy-700);
+}
+/*
+  ---break---
+*/
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-serif);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+  .legal-document {
+    @apply font-serif text-charcoal-900 leading-relaxed;
+  }
+  .legal-section-number {
+    @apply font-sans font-semibold text-navy-900;
+  }
+}
+
+/* Print styles for legal documents */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .legal-document {
+    font-size: 12pt;
+    line-height: 1.5;
   }
 }

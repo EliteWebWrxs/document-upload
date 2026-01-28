@@ -7,10 +7,7 @@
 import { PREVIEW_MODE_ROUTE } from 'lib/sanity.api'
 import type { DefaultDocumentNodeResolver } from 'sanity/structure'
 import { Iframe, IframeOptions } from 'sanity-plugin-iframe-pane'
-import authorType from 'schemas/author'
-import postType from 'schemas/post'
-
-import AuthorAvatarPreviewPane from './AuthorAvatarPreviewPane'
+import legalDocumentType from 'schemas/legalDocument'
 
 const iframeOptions = {
   url: {
@@ -20,9 +17,9 @@ const iframeOptions = {
         return new Error('Missing document')
       }
       switch (document._type) {
-        case 'post':
+        case 'legalDocument':
           return (document as any)?.slug?.current
-            ? `/posts/${(document as any).slug.current}`
+            ? `/documents/${(document as any).slug.current}`
             : new Error('Missing slug')
         default:
           return new Error(`Unknown document type: ${document?._type}`)
@@ -36,20 +33,7 @@ const iframeOptions = {
 export const previewDocumentNode = (): DefaultDocumentNodeResolver => {
   return (S, { schemaType }) => {
     switch (schemaType) {
-      case authorType.name:
-        return S.document().views([
-          S.view.form(),
-          S.view
-            .component(({ document }) => (
-              <AuthorAvatarPreviewPane
-                name={document.displayed.name as any}
-                picture={document.displayed.picture as any}
-              />
-            ))
-            .title('Preview'),
-        ])
-
-      case postType.name:
+      case legalDocumentType.name:
         return S.document().views([
           S.view.form(),
           S.view.component(Iframe).options(iframeOptions).title('Preview'),

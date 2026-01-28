@@ -1,66 +1,73 @@
-import groq from 'groq'
+import { groq } from 'next-sanity'
 
-const postFields = groq`
-  _id,
-  title,
-  date,
-  _updatedAt,
-  excerpt,
-  coverImage,
-  "slug": slug.current,
-  "author": author->{name, picture},
-`
-
-export const settingsQuery = groq`*[_type == "settings"][0]`
-
-export const indexQuery = groq`
-*[_type == "post"] | order(date desc, _updatedAt desc) {
-  ${postFields}
-}`
-
-export const postAndMoreStoriesQuery = groq`
-{
-  "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    content,
-    ${postFields}
-  },
-  "morePosts": *[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
-    content,
-    ${postFields}
+// Get all published legal documents
+export const legalDocumentsQuery = groq`
+  *[_type == "legalDocument" && status == "published"] | order(publicationDate desc) {
+    _id,
+    title,
+    slug,
+    caseNumber,
+    courtHeader,
+    documentType,
+    publicationDate,
+    excerpt,
+    tags
   }
-}`
-
-export const postSlugsQuery = groq`
-*[_type == "post" && defined(slug.current)][].slug.current
 `
 
-export const postBySlugQuery = groq`
-*[_type == "post" && slug.current == $slug][0] {
-  ${postFields}
-}
-`
-
-export interface Author {
-  name?: string
-  picture?: any
-}
-
-export interface Post {
-  _id: string
-  title?: string
-  coverImage?: any
-  date?: string
-  _updatedAt?: string
-  excerpt?: string
-  author?: Author
-  slug?: string
-  content?: any
-}
-
-export interface Settings {
-  title?: string
-  description?: any[]
-  ogImage?: {
-    title?: string
+// Get a single legal document by slug
+export const legalDocumentBySlugQuery = groq`
+  *[_type == "legalDocument" && slug.current == $slug && status == "published"][0] {
+    _id,
+    title,
+    slug,
+    courtHeader,
+    caseInformation,
+    documentSubtitle,
+    content,
+    signatureBlock,
+    caseNumber,
+    documentType,
+    filingDate,
+    publicationDate,
+    excerpt,
+    tags
   }
-}
+`
+
+// Get recent documents for homepage
+export const recentDocumentsQuery = groq`
+  *[_type == "legalDocument" && status == "published"] | order(publicationDate desc) [0...6] {
+    _id,
+    title,
+    slug,
+    caseNumber,
+    courtHeader,
+    documentType,
+    publicationDate,
+    excerpt
+  }
+`
+
+// Get site settings
+export const siteSettingsQuery = groq`
+  *[_type == "siteSettings"][0] {
+    title,
+    description,
+    principlesStatement,
+    seo {
+      metaTitle,
+      metaDescription,
+      keywords,
+      "ogImage": ogImage.asset->url
+    }
+  }
+`
+
+// Get all document slugs for sitemap
+export const allDocumentSlugsQuery = groq`
+  *[_type == "legalDocument" && status == "published" && defined(slug.current)] {
+    "slug": slug.current,
+    publicationDate
+  }
+`

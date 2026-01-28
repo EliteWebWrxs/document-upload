@@ -17,12 +17,12 @@ import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
-import authorType from 'schemas/author'
-import postType from 'schemas/post'
+import legalDocumentType from 'schemas/legalDocument'
+import siteSettingsType from 'schemas/siteSettings'
 import settingsType from 'schemas/settings'
 
 const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'The Warriors Den'
 
 export default defineConfig({
   basePath: '/studio',
@@ -30,8 +30,7 @@ export default defineConfig({
   dataset,
   title,
   schema: {
-    // If you want more content types, you can add them to this array
-    types: [authorType, postType, settingsType],
+    types: [legalDocumentType, siteSettingsType, settingsType],
   },
   plugins: [
     structureTool({
@@ -40,7 +39,9 @@ export default defineConfig({
       defaultDocumentNode: previewDocumentNode(),
     }),
     presentationTool({
-      locate,
+      resolve: {
+        locations: locate,
+      },
       previewUrl: { previewMode: { enable: PREVIEW_MODE_ROUTE } },
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
