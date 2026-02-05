@@ -7,24 +7,40 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Modern Legal Color Palette - Refined navy and neutrals */
-  --color-navy-950: #0f172a;
-  --color-navy-900: #1e293b;
-  --color-navy-800: #334155;
-  --color-navy-700: #475569;
-  --color-navy-600: #64748b;
-  --color-navy-100: #e2e8f0;
-  --color-navy-50: #f8fafc;
+  /* Royal Regal Color Palette - Purple, Gold, Royal Blue */
+  --color-royal-purple-950: #1a0a1a;
+  --color-royal-purple-900: #2D0147;
+  --color-royal-purple-800: #4B0082;
+  --color-royal-purple-700: #6B0F7F;
+  --color-royal-purple-600: #8B2A9B;
+  --color-royal-purple-100: #E6D5F0;
+  --color-royal-purple-50: #F5EFFA;
 
-  --color-charcoal-900: #18181b;
-  --color-charcoal-800: #27272a;
-  --color-charcoal-700: #3f3f46;
-  --color-charcoal-600: #52525b;
-  --color-charcoal-500: #71717a;
-  --color-charcoal-300: #d4d4d8;
-  --color-charcoal-200: #e4e4e7;
-  --color-charcoal-100: #f4f4f5;
-  --color-charcoal-50: #fafafa;
+  --color-royal-blue-900: #002366;
+  --color-royal-blue-800: #003DA5;
+  --color-royal-blue-700: #0047AB;
+  --color-royal-blue-600: #1E5BC6;
+  --color-royal-blue-500: #3A75D8;
+  --color-royal-blue-100: #D6E4FF;
+  --color-royal-blue-50: #EBF3FF;
+
+  --color-gold-900: #8B6914;
+  --color-gold-800: #B8860B;
+  --color-gold-700: #D4AF37;
+  --color-gold-600: #E5C158;
+  --color-gold-500: #FFD700;
+  --color-gold-100: #FFF4CC;
+  --color-gold-50: #FFFAE6;
+
+  --color-dark-900: #0a0a0a;
+  --color-dark-800: #1a1a1a;
+  --color-dark-700: #2a2a2a;
+  --color-dark-600: #3a3a3a;
+  --color-dark-500: #525252;
+  --color-dark-300: #a3a3a3;
+  --color-dark-200: #d4d4d4;
+  --color-dark-100: #f0f0f0;
+  --color-dark-50: #fafafa;
 
   --color-cream: #fdfcfb;
   --color-parchment: #f9f8f6;
@@ -36,9 +52,10 @@
   --leading-relaxed: 1.75;
   --leading-loose: 2;
 
-  /* Modern shadows with subtle depth */
-  --shadow-legal: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
-  --shadow-document: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+  /* Regal shadows with golden glow */
+  --shadow-legal: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-document: 0 10px 15px -3px rgb(45 1 71 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.15);
+  --shadow-gold: 0 0 20px rgb(212 175 55 / 0.3);
 }
 
 /*
@@ -107,56 +124,56 @@
 :root {
   --radius: 0.25rem;
   --background: var(--color-cream);
-  --foreground: var(--color-charcoal-900);
+  --foreground: var(--color-dark-900);
   --card: #ffffff;
-  --card-foreground: var(--color-charcoal-900);
+  --card-foreground: var(--color-dark-900);
   --popover: #ffffff;
-  --popover-foreground: var(--color-charcoal-900);
-  --primary: var(--color-navy-900);
-  --primary-foreground: #ffffff;
-  --secondary: var(--color-charcoal-100);
-  --secondary-foreground: var(--color-charcoal-900);
-  --muted: var(--color-charcoal-100);
-  --muted-foreground: var(--color-charcoal-600);
-  --accent: var(--color-navy-50);
-  --accent-foreground: var(--color-navy-900);
+  --popover-foreground: var(--color-dark-900);
+  --primary: var(--color-royal-purple-900);
+  --primary-foreground: var(--color-gold-500);
+  --secondary: var(--color-royal-blue-700);
+  --secondary-foreground: #ffffff;
+  --muted: var(--color-dark-100);
+  --muted-foreground: var(--color-dark-600);
+  --accent: var(--color-gold-700);
+  --accent-foreground: var(--color-dark-900);
   --destructive: #dc2626;
-  --border: var(--color-charcoal-300);
-  --input: var(--color-charcoal-200);
-  --ring: var(--color-navy-600);
-  --chart-1: var(--color-navy-600);
-  --chart-2: var(--color-charcoal-600);
-  --chart-3: var(--color-navy-800);
-  --chart-4: var(--color-charcoal-500);
-  --chart-5: var(--color-navy-700);
+  --border: var(--color-dark-300);
+  --input: var(--color-dark-200);
+  --ring: var(--color-royal-purple-600);
+  --chart-1: var(--color-royal-purple-600);
+  --chart-2: var(--color-royal-blue-600);
+  --chart-3: var(--color-gold-600);
+  --chart-4: var(--color-dark-500);
+  --chart-5: var(--color-royal-purple-700);
 }
 /*
   ---break---
 */
 .dark {
-  --background: var(--color-navy-950);
-  --foreground: var(--color-charcoal-50);
-  --card: var(--color-charcoal-900);
-  --card-foreground: var(--color-charcoal-50);
-  --popover: var(--color-charcoal-900);
-  --popover-foreground: var(--color-charcoal-50);
-  --primary: var(--color-navy-600);
-  --primary-foreground: #ffffff;
-  --secondary: var(--color-charcoal-800);
-  --secondary-foreground: var(--color-charcoal-50);
-  --muted: var(--color-charcoal-800);
-  --muted-foreground: var(--color-charcoal-500);
-  --accent: var(--color-navy-900);
-  --accent-foreground: var(--color-navy-100);
+  --background: var(--color-royal-purple-950);
+  --foreground: var(--color-dark-50);
+  --card: var(--color-dark-900);
+  --card-foreground: var(--color-gold-100);
+  --popover: var(--color-dark-900);
+  --popover-foreground: var(--color-gold-100);
+  --primary: var(--color-royal-purple-700);
+  --primary-foreground: var(--color-gold-500);
+  --secondary: var(--color-royal-blue-700);
+  --secondary-foreground: var(--color-gold-100);
+  --muted: var(--color-dark-800);
+  --muted-foreground: var(--color-dark-500);
+  --accent: var(--color-gold-700);
+  --accent-foreground: var(--color-royal-purple-950);
   --destructive: #ef4444;
-  --border: var(--color-charcoal-700);
-  --input: var(--color-charcoal-800);
-  --ring: var(--color-navy-600);
-  --chart-1: var(--color-navy-600);
-  --chart-2: var(--color-charcoal-600);
-  --chart-3: var(--color-navy-800);
-  --chart-4: var(--color-charcoal-500);
-  --chart-5: var(--color-navy-700);
+  --border: var(--color-dark-700);
+  --input: var(--color-dark-800);
+  --ring: var(--color-gold-600);
+  --chart-1: var(--color-royal-purple-600);
+  --chart-2: var(--color-royal-blue-600);
+  --chart-3: var(--color-gold-600);
+  --chart-4: var(--color-dark-500);
+  --chart-5: var(--color-royal-purple-700);
 }
 /*
   ---break---
@@ -179,10 +196,10 @@
     font-weight: 600;
   }
   .legal-document {
-    @apply font-serif text-charcoal-900 leading-relaxed;
+    @apply font-serif text-dark-900 leading-relaxed;
   }
   .legal-section-number {
-    @apply font-sans font-semibold text-navy-900;
+    @apply font-sans font-semibold text-royal-purple-900;
   }
 }
 
