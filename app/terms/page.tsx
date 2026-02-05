@@ -4,7 +4,16 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Terms of Use & Principles | The Warriors Den',
-  description: 'Website Terms of Use, Rights, and Principles Statement',
+  description: 'Website Terms of Use, Rights, and Principles Statement - Constitutional rights, disclosure notice, and binding agreement for The Warriors Den legal document archive.',
+  alternates: {
+    canonical: 'https://the-warriors-den.com/terms',
+  },
+  openGraph: {
+    title: 'Terms of Use & Principles | The Warriors Den',
+    description: 'Constitutional rights and principles governing The Warriors Den legal document memorial archive.',
+    url: 'https://the-warriors-den.com/terms',
+    type: 'website',
+  },
 }
 
 export default function TermsPage() {

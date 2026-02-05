@@ -6,11 +6,40 @@ import Image from 'next/image'
 export const metadata = {
   title: 'About | The Warriors Den',
   description: 'Learn about The Warriors Den - A platform dedicated to transparency, constitutional principles, and the preservation of public legal records.',
+  alternates: {
+    canonical: 'https://the-warriors-den.com/about',
+  },
+  openGraph: {
+    title: 'About The Warriors Den',
+    description: 'A platform for truth, transparency, and constitutional liberty. Learn about our mission to preserve public legal records.',
+    url: 'https://the-warriors-den.com/about',
+    type: 'website',
+  },
 }
 
 export default function AboutPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About The Warriors Den',
+    description: 'A platform dedicated to transparency, constitutional principles, and the preservation of public legal records',
+    url: 'https://the-warriors-den.com/about',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'The Warriors Den',
+      description: 'Legal Document Memorial Archive',
+      foundingDate: '2024',
+      mission: 'To preserve, publish, and protect the public record—ensuring that legal documents remain accessible as a fundamental right',
+      knowsAbout: ['Legal Documents', 'Court Proceedings', 'Constitutional Rights', 'Public Records', 'Transparency'],
+    },
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main className="flex-1">
         {/* Hero Section */ }

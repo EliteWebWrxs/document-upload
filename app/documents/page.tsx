@@ -5,6 +5,20 @@ import { Footer } from '@/components/Footer'
 import { DocumentsFilter } from '@/components/DocumentsFilter'
 import { Suspense } from 'react'
 
+export const metadata = {
+  title: 'Legal Document Archive | The Warriors Den',
+  description: 'Browse all published legal documents, court proceedings, and official filings. All documents published after their 30-day public availability period.',
+  alternates: {
+    canonical: 'https://the-warriors-den.com/documents',
+  },
+  openGraph: {
+    title: 'Legal Document Archive | The Warriors Den',
+    description: 'Browse and search court proceedings and legal documents.',
+    url: 'https://the-warriors-den.com/documents',
+    type: 'website',
+  },
+}
+
 interface Document {
   _id: string
   title: string

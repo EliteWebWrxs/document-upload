@@ -68,11 +68,15 @@ export async function generateMetadata({
   return {
     title: metaTitle,
     description: metaDescription,
+    alternates: {
+      canonical: `https://the-warriors-den.com/documents/${slug}`,
+    },
     openGraph: {
       title: metaTitle,
       description: metaDescription,
       type: 'article',
       publishedTime: document.publicationDate,
+      url: `https://the-warriors-den.com/documents/${slug}`,
     },
   }
 }
@@ -98,8 +102,36 @@ export default async function DocumentPage({ params }: DocumentPageProps) {
     notFound()
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: document.title,
+    description: document.excerpt || `Legal document: ${document.title}`,
+    datePublished: document.publicationDate,
+    ...(document.filingDate && { dateModified: document.filingDate }),
+    author: {
+      '@type': 'Organization',
+      name: 'The Warriors Den',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'The Warriors Den',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://the-warriors-den.com/logo.webp',
+      },
+    },
+    articleSection: document.documentType,
+    ...(document.tags && { keywords: document.tags.join(', ') }),
+    ...(document.caseNumber && { identifier: document.caseNumber }),
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main className="flex-1">
         {/* Breadcrumb */}

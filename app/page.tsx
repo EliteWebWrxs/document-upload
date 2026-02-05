@@ -5,6 +5,14 @@ import { Footer } from '@/components/Footer'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
+export const metadata = {
+  title: 'The Warriors Den | Legal Document Memorial Archive',
+  description: 'Professional platform dedicated to publishing court proceedings and legal documents after their 30-day public availability period, ensuring transparency and accessibility.',
+  alternates: {
+    canonical: 'https://the-warriors-den.com',
+  },
+}
+
 interface Document {
   _id: string
   title: string
@@ -31,8 +39,36 @@ export default async function HomePage() {
     query: recentDocumentsQuery,
   })
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'The Warriors Den',
+    description: 'Legal Document Memorial Archive dedicated to transparency and constitutional principles',
+    url: 'https://the-warriors-den.com',
+    publisher: {
+      '@type': 'Organization',
+      name: 'The Warriors Den',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://the-warriors-den.com/logo.webp',
+      },
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://the-warriors-den.com/documents?search={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main className="flex-1">
         {/* Hero Section */}

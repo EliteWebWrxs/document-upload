@@ -39,11 +39,20 @@ export const metadata: Metadata = {
     title: 'The Warriors Den | Legal Document Memorial Archive',
     description:
       'Professional legal document memorial platform publishing court proceedings and legal documents.',
+    images: [
+      {
+        url: '/background.webp',
+        width: 2000,
+        height: 1176,
+        alt: 'The Warriors Den - Worship Spirit & Truth',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'The Warriors Den | Legal Document Memorial Archive',
     description: 'Professional legal document memorial archive.',
+    images: ['/background.webp'],
   },
   robots: {
     index: true,
