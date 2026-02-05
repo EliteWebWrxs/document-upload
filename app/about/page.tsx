@@ -125,52 +125,40 @@ export default function AboutPage() {
                 What We Do
               </h2>
               <div className="space-y-6">
-                <div className="flex gap-4">
-                  <span className="mt-1 text-gold-700 text-[24px]">⚖️</span>
-                  <div>
-                    <h3 className="mb-2 font-sans text-[18px] font-semibold text-royal-purple-900">
-                      Publish Legal Documents
-                    </h3>
-                    <p className="text-[15px] leading-relaxed text-dark-700">
-                      We archive court filings, motions, orders, and other legal documents after their required 30-day public availability period has ended, ensuring permanent accessibility.
-                    </p>
-                  </div>
+                <div className="border-l-4 border-gold-700 pl-6">
+                  <h3 className="mb-2 font-sans text-[18px] font-semibold text-royal-purple-900">
+                    Publish Legal Documents
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-dark-700">
+                    We archive court filings, motions, orders, and other legal documents after their required 30-day public availability period has ended, ensuring permanent accessibility.
+                  </p>
                 </div>
 
-                <div className="flex gap-4">
-                  <span className="mt-1 text-gold-700 text-[24px]">📚</span>
-                  <div>
-                    <h3 className="mb-2 font-sans text-[18px] font-semibold text-royal-purple-900">
-                      Maintain Public Records
-                    </h3>
-                    <p className="text-[15px] leading-relaxed text-dark-700">
-                      Our registry preserves documents that might otherwise be lost, deleted, or made inaccessible, serving as a memorial archive for future reference and research.
-                    </p>
-                  </div>
+                <div className="border-l-4 border-gold-700 pl-6">
+                  <h3 className="mb-2 font-sans text-[18px] font-semibold text-royal-purple-900">
+                    Maintain Public Records
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-dark-700">
+                    Our registry preserves documents that might otherwise be lost, deleted, or made inaccessible, serving as a memorial archive for future reference and research.
+                  </p>
                 </div>
 
-                <div className="flex gap-4">
-                  <span className="mt-1 text-gold-700 text-[24px]">🔍</span>
-                  <div>
-                    <h3 className="mb-2 font-sans text-[18px] font-semibold text-royal-purple-900">
-                      Enable Public Oversight
-                    </h3>
-                    <p className="text-[15px] leading-relaxed text-dark-700">
-                      By making legal proceedings searchable and accessible, we empower citizens to hold systems accountable and stay informed about matters of public interest.
-                    </p>
-                  </div>
+                <div className="border-l-4 border-gold-700 pl-6">
+                  <h3 className="mb-2 font-sans text-[18px] font-semibold text-royal-purple-900">
+                    Enable Public Oversight
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-dark-700">
+                    By making legal proceedings searchable and accessible, we empower citizens to hold systems accountable and stay informed about matters of public interest.
+                  </p>
                 </div>
 
-                <div className="flex gap-4">
-                  <span className="mt-1 text-gold-700 text-[24px]">🛡️</span>
-                  <div>
-                    <h3 className="mb-2 font-sans text-[18px] font-semibold text-royal-purple-900">
-                      Protect Constitutional Rights
-                    </h3>
-                    <p className="text-[15px] leading-relaxed text-dark-700">
-                      We operate within the framework of constitutional law and natural rights, ensuring that record holders can exercise their unlimited right to contract and free speech.
-                    </p>
-                  </div>
+                <div className="border-l-4 border-gold-700 pl-6">
+                  <h3 className="mb-2 font-sans text-[18px] font-semibold text-royal-purple-900">
+                    Protect Constitutional Rights
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-dark-700">
+                    We operate within the framework of constitutional law and natural rights, ensuring that record holders can exercise their unlimited right to contract and free speech.
+                  </p>
                 </div>
               </div>
             </div>

@@ -18,6 +18,19 @@ export const metadata: Metadata = {
   authors: [{ name: 'The Warriors Den' }],
   creator: 'The Warriors Den',
   metadataBase: new URL('https://the-warriors-den.com'),
+  icons: {
+    icon: [
+      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/favicon/favicon-32x32.png' },
+    ],
+  },
+  manifest: '/favicon/site.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -43,6 +56,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#2D0147' },
+    { media: '(prefers-color-scheme: dark)', color: '#1a0a1a' },
+  ],
 }
 
 export default function RootLayout({
