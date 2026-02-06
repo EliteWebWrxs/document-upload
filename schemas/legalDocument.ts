@@ -141,6 +141,15 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'pdfFile',
+      title: 'PDF File',
+      type: 'file',
+      description: 'Upload a PDF version of this document',
+      options: {
+        accept: '.pdf',
+      },
+    }),
+    defineField({
       name: 'status',
       title: 'Status',
       type: 'string',

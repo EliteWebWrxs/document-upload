@@ -31,7 +31,8 @@ export const legalDocumentBySlugQuery = groq`
     filingDate,
     publicationDate,
     excerpt,
-    tags
+    tags,
+    "pdfUrl": pdfFile.asset->url
   }
 `
 
