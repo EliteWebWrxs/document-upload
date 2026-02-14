@@ -6,12 +6,12 @@ export const metadata = {
   title: 'Terms of Use & Principles | The Warriors Den',
   description: 'Website Terms of Use, Rights, and Principles Statement - Constitutional rights, disclosure notice, and binding agreement for The Warriors Den legal document archive.',
   alternates: {
-    canonical: 'https://the-warriors-den.com/terms',
+    canonical: 'https://warriors-den.com/terms',
   },
   openGraph: {
     title: 'Terms of Use & Principles | The Warriors Den',
     description: 'Constitutional rights and principles governing The Warriors Den legal document memorial archive.',
-    url: 'https://the-warriors-den.com/terms',
+    url: 'https://warriors-den.com/terms',
     type: 'website',
   },
 }
@@ -22,7 +22,7 @@ export default function TermsPage() {
       <Header />
       <main className="flex-1 bg-gradient-to-b from-cream to-royal-purple-50">
         <div className="container mx-auto max-w-4xl px-6 py-16">
-          {/* Back Button */}
+          {/* Back Button */ }
           <Link
             href="/"
             className="mb-8 inline-flex items-center text-[14px] text-royal-purple-900 hover:text-gold-700 transition-colors"
@@ -30,7 +30,7 @@ export default function TermsPage() {
             ← Back to Home
           </Link>
 
-          {/* Header */}
+          {/* Header */ }
           <div className="mb-12 text-center">
             <h1 className="mb-4 font-sans text-[42px] font-bold tracking-tight text-royal-purple-900">
               Website Terms of Use, Rights, and Principles Statement
@@ -38,10 +38,10 @@ export default function TermsPage() {
             <div className="mx-auto h-1 w-32 bg-gradient-to-r from-gold-700 to-gold-500 rounded-full" />
           </div>
 
-          {/* Content */}
+          {/* Content */ }
           <div className="rounded-lg border border-gold-700/30 bg-white p-8 md:p-12 shadow-lg">
             <article className="prose prose-lg max-w-none">
-              {/* Section 1 */}
+              {/* Section 1 */ }
               <section className="mb-10">
                 <h2 className="mb-4 font-sans text-[28px] font-bold text-royal-purple-900 flex items-center gap-3">
                   <span className="text-gold-700">1.</span>
@@ -58,7 +58,7 @@ export default function TermsPage() {
                 </p>
               </section>
 
-              {/* Section 2 */}
+              {/* Section 2 */ }
               <section className="mb-10">
                 <h2 className="mb-4 font-sans text-[28px] font-bold text-royal-purple-900 flex items-center gap-3">
                   <span className="text-gold-700">2.</span>
@@ -75,7 +75,7 @@ export default function TermsPage() {
                 </p>
               </section>
 
-              {/* Section 3 */}
+              {/* Section 3 */ }
               <section className="mb-10">
                 <h2 className="mb-4 font-sans text-[28px] font-bold text-royal-purple-900 flex items-center gap-3">
                   <span className="text-gold-700">3.</span>
@@ -102,7 +102,7 @@ export default function TermsPage() {
                 </p>
               </section>
 
-              {/* Section 4 */}
+              {/* Section 4 */ }
               <section className="mb-10">
                 <h2 className="mb-4 font-sans text-[28px] font-bold text-royal-purple-900 flex items-center gap-3">
                   <span className="text-gold-700">4.</span>
@@ -120,7 +120,7 @@ export default function TermsPage() {
                 </p>
               </section>
 
-              {/* Section 5 */}
+              {/* Section 5 */ }
               <section className="mb-10">
                 <h2 className="mb-4 font-sans text-[28px] font-bold text-royal-purple-900 flex items-center gap-3">
                   <span className="text-gold-700">5.</span>
@@ -140,7 +140,7 @@ export default function TermsPage() {
                 </p>
               </section>
 
-              {/* Section 6 */}
+              {/* Section 6 */ }
               <section className="mb-10">
                 <h2 className="mb-4 font-sans text-[28px] font-bold text-royal-purple-900 flex items-center gap-3">
                   <span className="text-gold-700">6.</span>
@@ -157,7 +157,7 @@ export default function TermsPage() {
                 </p>
               </section>
 
-              {/* Section 7 */}
+              {/* Section 7 */ }
               <section className="mb-10">
                 <h2 className="mb-4 font-sans text-[28px] font-bold text-royal-purple-900 flex items-center gap-3">
                   <span className="text-gold-700">7.</span>
@@ -172,7 +172,7 @@ export default function TermsPage() {
                 </p>
               </section>
 
-              {/* Section 8 */}
+              {/* Section 8 */ }
               <section className="mb-10">
                 <h2 className="mb-4 font-sans text-[28px] font-bold text-royal-purple-900 flex items-center gap-3">
                   <span className="text-gold-700">8.</span>
@@ -187,7 +187,7 @@ export default function TermsPage() {
                 </p>
               </section>
 
-              {/* Section 9 */}
+              {/* Section 9 */ }
               <section>
                 <h2 className="mb-4 font-sans text-[28px] font-bold text-royal-purple-900 flex items-center gap-3">
                   <span className="text-gold-700">9.</span>
@@ -202,7 +202,7 @@ export default function TermsPage() {
             </article>
           </div>
 
-          {/* Important Disclosure Notice */}
+          {/* Important Disclosure Notice */ }
           <div className="mt-8 rounded-lg border-2 border-gold-700 bg-royal-purple-50 p-8 md:p-10 shadow-lg">
             <div className="mb-6 text-center">
               <h2 className="mb-2 font-sans text-[32px] font-bold text-royal-purple-900">
@@ -250,7 +250,7 @@ export default function TermsPage() {
             </div>
           </div>
 
-          {/* Footer Note */}
+          {/* Footer Note */ }
           <div className="mt-8 text-center">
             <p className="text-[14px] italic text-dark-600">
               Established in the spirit of truth, liberty, and constitutional principles.

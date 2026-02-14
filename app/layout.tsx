@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     'public records',
     'constitutional rights',
   ],
-  authors: [{ name: 'The Warriors Den' }],
+  authors: [ { name: 'The Warriors Den' } ],
   creator: 'The Warriors Den',
-  metadataBase: new URL('https://the-warriors-den.com'),
+  metadataBase: new URL('https://warriors-den.com'),
   icons: {
     icon: [
       { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://the-warriors-den.com',
+    url: 'https://warriors-den.com',
     siteName: 'The Warriors Den',
     title: 'The Warriors Den | Legal Document Memorial Archive',
     description:
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Warriors Den | Legal Document Memorial Archive',
     description: 'Professional legal document memorial archive.',
-    images: ['/background.webp'],
+    images: [ '/background.webp' ],
   },
   robots: {
     index: true,
@@ -79,7 +79,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-background font-serif text-foreground antialiased">
-        {children}
+        { children }
       </body>
     </html>
   )

@@ -9,7 +9,7 @@ export const metadata = {
   title: 'The Warriors Den | Legal Document Memorial Archive',
   description: 'Professional platform dedicated to publishing court proceedings and legal documents after their 30-day public availability period, ensuring transparency and accessibility.',
   alternates: {
-    canonical: 'https://the-warriors-den.com',
+    canonical: 'https://warriors-den.com',
   },
 }
 
@@ -44,20 +44,20 @@ export default async function HomePage() {
     '@type': 'WebSite',
     name: 'The Warriors Den',
     description: 'Legal Document Memorial Archive dedicated to transparency and constitutional principles',
-    url: 'https://the-warriors-den.com',
+    url: 'https://warriors-den.com',
     publisher: {
       '@type': 'Organization',
       name: 'The Warriors Den',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://the-warriors-den.com/logo.webp',
+        url: 'https://warriors-den.com/logo.webp',
       },
     },
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://the-warriors-den.com/documents?search={search_term_string}',
+        urlTemplate: 'https://warriors-den.com/documents?search={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },
@@ -67,15 +67,15 @@ export default async function HomePage() {
     <div className="flex min-h-screen flex-col">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={ { __html: JSON.stringify(jsonLd) } }
       />
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
+        {/* Hero Section */ }
         <section className="relative border-b border-gold-700 bg-royal-purple-950 py-32 md:py-40 overflow-hidden">
           <div
             className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-50"
-            style={{ backgroundImage: 'url(/background.webp)' }}
+            style={ { backgroundImage: 'url(/background.webp)' } }
           />
           <div className="absolute inset-0 bg-gradient-to-b from-royal-purple-950/70 via-royal-purple-900/60 to-royal-purple-950/80" />
           <div className="container relative z-10 mx-auto max-w-5xl px-6 text-center">
@@ -102,48 +102,48 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* Recent Documents */}
+        {/* Recent Documents */ }
         <section className="py-20 bg-gradient-to-b from-cream to-royal-purple-50">
           <div className="container mx-auto max-w-6xl px-6">
             <h2 className="mb-10 font-sans text-[32px] font-bold text-royal-purple-900">
               Recently Published Documents
             </h2>
-            {documents && documents.length > 0 ? (
+            { documents && documents.length > 0 ? (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {documents.map((doc) => (
+                { documents.map((doc) => (
                   <Link
-                    key={doc._id}
-                    href={`/documents/${doc.slug.current}`}
+                    key={ doc._id }
+                    href={ `/documents/${doc.slug.current}` }
                     className="group block rounded-lg border border-gold-700/30 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-gold-700 hover:shadow-gold"
                   >
                     <div className="mb-3 flex items-start justify-between gap-2">
                       <span className="rounded-md bg-royal-purple-100 px-2.5 py-1 text-[12px] font-medium text-royal-purple-900">
-                        {doc.documentType}
+                        { doc.documentType }
                       </span>
                       <time className="text-[12px] text-dark-600">
-                        {formatDate(doc.publicationDate)}
+                        { formatDate(doc.publicationDate) }
                       </time>
                     </div>
                     <h3 className="mb-3 font-sans text-[17px] font-semibold leading-snug text-royal-purple-900 group-hover:text-gold-700">
-                      {doc.title}
+                      { doc.title }
                     </h3>
-                    {doc.caseNumber && (
+                    { doc.caseNumber && (
                       <p className="mb-2 text-[13px] font-medium text-gold-800">
-                        Case: {doc.caseNumber}
+                        Case: { doc.caseNumber }
                       </p>
-                    )}
-                    {doc.courtHeader && (
+                    ) }
+                    { doc.courtHeader && (
                       <p className="mb-3 text-[13px] text-dark-600">
-                        {doc.courtHeader.split('\n')[0]}
+                        { doc.courtHeader.split('\n')[ 0 ] }
                       </p>
-                    )}
-                    {doc.excerpt && (
+                    ) }
+                    { doc.excerpt && (
                       <p className="line-clamp-3 text-[14px] leading-relaxed text-dark-700">
-                        {doc.excerpt}
+                        { doc.excerpt }
                       </p>
-                    )}
+                    ) }
                   </Link>
-                ))}
+                )) }
               </div>
             ) : (
               <div className="rounded-lg border border-gold-700/30 bg-white p-12 text-center">
@@ -151,7 +151,7 @@ export default async function HomePage() {
                   No documents published yet. Check back soon.
                 </p>
               </div>
-            )}
+            ) }
           </div>
         </section>
       </main>

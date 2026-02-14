@@ -3,7 +3,7 @@ import { sanityFetch } from '@/lib/sanity.client'
 import { allDocumentSlugsQuery } from '@/lib/sanity.queries'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://the-warriors-den.com'
+  const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://warriors-den.com'
 
   // Fetch all published documents
   const documents = await sanityFetch<

@@ -70,14 +70,14 @@ export async function generateMetadata({
     title: metaTitle,
     description: metaDescription,
     alternates: {
-      canonical: `https://the-warriors-den.com/documents/${slug}`,
+      canonical: `https://warriors-den.com/documents/${slug}`,
     },
     openGraph: {
       title: metaTitle,
       description: metaDescription,
       type: 'article',
       publishedTime: document.publicationDate,
-      url: `https://the-warriors-den.com/documents/${slug}`,
+      url: `https://warriors-den.com/documents/${slug}`,
     },
   }
 }
@@ -119,7 +119,7 @@ export default async function DocumentPage({ params }: DocumentPageProps) {
       name: 'The Warriors Den',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://the-warriors-den.com/logo.webp',
+        url: 'https://warriors-den.com/logo.webp',
       },
     },
     articleSection: document.documentType,
@@ -131,11 +131,11 @@ export default async function DocumentPage({ params }: DocumentPageProps) {
     <div className="flex min-h-screen flex-col">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={ { __html: JSON.stringify(jsonLd) } }
       />
       <Header />
       <main className="flex-1">
-        {/* Breadcrumb */}
+        {/* Breadcrumb */ }
         <div className="border-b border-gold-700/30 bg-royal-purple-50">
           <div className="container mx-auto max-w-7xl px-6 py-4">
             <nav className="flex items-center gap-2 text-[13px] text-dark-600">
@@ -153,70 +153,70 @@ export default async function DocumentPage({ params }: DocumentPageProps) {
                 Documents
               </Link>
               <span>/</span>
-              <span className="text-royal-purple-900 font-medium">{document.title}</span>
+              <span className="text-royal-purple-900 font-medium">{ document.title }</span>
             </nav>
           </div>
         </div>
 
-        {/* Document Metadata */}
+        {/* Document Metadata */ }
         <div className="border-b border-gold-700/30 bg-white">
           <div className="container mx-auto max-w-7xl px-6 py-10">
             <div className="mb-6 flex flex-wrap items-center gap-3">
               <span className="rounded-md bg-royal-purple-100 px-3 py-1.5 text-[13px] font-medium text-royal-purple-900">
-                {document.documentType}
+                { document.documentType }
               </span>
-              {document.publicationDate && (
+              { document.publicationDate && (
                 <time className="text-[13px] text-dark-600">
-                  Published: {formatDate(document.publicationDate)}
+                  Published: { formatDate(document.publicationDate) }
                 </time>
-              )}
-              {document.filingDate && (
+              ) }
+              { document.filingDate && (
                 <time className="text-[13px] text-dark-600">
-                  Filed: {formatDate(document.filingDate)}
+                  Filed: { formatDate(document.filingDate) }
                 </time>
-              )}
+              ) }
             </div>
 
-            {document.excerpt && (
+            { document.excerpt && (
               <p className="mb-6 max-w-3xl text-[17px] leading-relaxed text-dark-700">
-                {document.excerpt}
+                { document.excerpt }
               </p>
-            )}
+            ) }
 
-            {document.tags && document.tags.length > 0 && (
+            { document.tags && document.tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
-                {document.tags.map((tag) => (
+                { document.tags.map((tag) => (
                   <span
-                    key={tag}
+                    key={ tag }
                     className="rounded-md bg-gold-100 px-2.5 py-1 text-[12px] font-medium text-gold-900"
                   >
-                    {tag}
+                    { tag }
                   </span>
-                ))}
+                )) }
               </div>
-            )}
+            ) }
           </div>
         </div>
 
-        {/* Document Content */}
+        {/* Document Content */ }
         <div className="bg-gradient-to-b from-cream to-royal-purple-50">
           <div className="container mx-auto max-w-7xl px-6 py-16">
             <div className="mx-auto max-w-5xl">
-              {/* Document Paper */}
+              {/* Document Paper */ }
               <div
                 className="rounded-xl border border-gold-700/30 bg-white px-16 py-14 shadow-lg"
                 data-document-content
               >
                 <LegalDocument
-                  courtHeader={document.courtHeader}
-                  caseInformation={document.caseInformation}
-                  documentSubtitle={document.documentSubtitle}
-                  content={document.content}
-                  signatureBlock={document.signatureBlock}
+                  courtHeader={ document.courtHeader }
+                  caseInformation={ document.caseInformation }
+                  documentSubtitle={ document.documentSubtitle }
+                  content={ document.content }
+                  signatureBlock={ document.signatureBlock }
                 />
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons */ }
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link href="/documents">
                   <Button variant="default">
@@ -229,15 +229,15 @@ export default async function DocumentPage({ params }: DocumentPageProps) {
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        strokeWidth={2}
+                        strokeWidth={ 2 }
                         d="M10 19l-7-7m0 0l7-7m-7 7h18"
                       />
                     </svg>
                     Back to Documents
                   </Button>
                 </Link>
-                {document.pdfUrl && (
-                  <a href={document.pdfUrl} target="_blank" rel="noopener noreferrer">
+                { document.pdfUrl && (
+                  <a href={ document.pdfUrl } target="_blank" rel="noopener noreferrer">
                     <Button variant="outline">
                       <svg
                         className="mr-2 h-4 w-4"
@@ -248,23 +248,23 @@ export default async function DocumentPage({ params }: DocumentPageProps) {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          strokeWidth={2}
+                          strokeWidth={ 2 }
                           d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                         />
                       </svg>
                       View PDF
                     </Button>
                   </a>
-                )}
-              <Suspense fallback={null}>
-                <DownloadPDFButton
-                  documentTitle={document.title}
-                  documentSlug={document.slug.current}
-                />
-              </Suspense>
+                ) }
+                <Suspense fallback={ null }>
+                  <DownloadPDFButton
+                    documentTitle={ document.title }
+                    documentSlug={ document.slug.current }
+                  />
+                </Suspense>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </main>
       <Footer />

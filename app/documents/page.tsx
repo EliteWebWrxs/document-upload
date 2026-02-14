@@ -9,12 +9,12 @@ export const metadata = {
   title: 'Legal Document Archive | The Warriors Den',
   description: 'Browse all published legal documents, court proceedings, and official filings. All documents published after their 30-day public availability period.',
   alternates: {
-    canonical: 'https://the-warriors-den.com/documents',
+    canonical: 'https://warriors-den.com/documents',
   },
   openGraph: {
     title: 'Legal Document Archive | The Warriors Den',
     description: 'Browse and search court proceedings and legal documents.',
-    url: 'https://the-warriors-den.com/documents',
+    url: 'https://warriors-den.com/documents',
     type: 'website',
   },
 }
@@ -38,7 +38,7 @@ async function DocumentsList() {
 
   return (
     <div className="container mx-auto max-w-7xl px-6 py-16">
-      {/* Header Section */}
+      {/* Header Section */ }
       <div className="mb-12">
         <h1 className="mb-4 font-sans text-[38px] font-bold tracking-tight text-royal-purple-900">
           Legal Document Archive
@@ -50,8 +50,8 @@ async function DocumentsList() {
         </p>
       </div>
 
-      {/* Documents Filter & Grid */}
-      <DocumentsFilter documents={documents} />
+      {/* Documents Filter & Grid */ }
+      <DocumentsFilter documents={ documents } />
     </div>
   )
 }
@@ -70,16 +70,16 @@ export default function DocumentsPage() {
                   <div className="h-6 w-full max-w-2xl rounded bg-royal-blue-100" />
                 </div>
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {[...Array(6)].map((_, i) => (
+                  { [ ...Array(6) ].map((_, i) => (
                     <div
-                      key={i}
+                      key={ i }
                       className="h-64 rounded-sm border border-border bg-card p-6"
                     >
                       <div className="mb-3 h-6 w-24 rounded bg-royal-purple-100" />
                       <div className="mb-2 h-6 w-full rounded bg-royal-purple-100" />
                       <div className="h-20 w-full rounded bg-royal-blue-50" />
                     </div>
-                  ))}
+                  )) }
                 </div>
               </div>
             </div>
